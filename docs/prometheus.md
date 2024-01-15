@@ -5,3 +5,7 @@ https://github.com/880831ian/Prometheus-Grafana-Docker
 
 http://localhost:9090/targets
 ![image](https://github.com/weilingpan/milvus/assets/42767268/199f1821-8e3e-4c43-bdde-6ac3ac2cdca6)
+
+
+# grafana
+docker volume create grafana-storage

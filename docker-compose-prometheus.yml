@@ -53,6 +53,11 @@ services:
     depends_on:
       - "etcd"
       - "minio"
+    deploy:
+      resources:
+        limits:
+          cpus: '4'   # 使用 n 個 CPU 核心
+          memory: 16G  
 
   attu:
    container_name: attu
@@ -69,5 +74,10 @@ services:
    image: grafana/grafana
    ports:
      - "3000:3000"
+   volumes:
+     - grafana_storage:/var/lib/grafana
    depends_on:
      - "prometheus"
+     
+volumes:
+  grafana_storage: {}
