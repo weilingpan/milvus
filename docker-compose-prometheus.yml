@@ -1,5 +1,6 @@
 services:
   prometheus:
+    container_name: prometheus
     image: prom/prometheus
     volumes:
       - "./prometheus.yml:/etc/prometheus/prometheus.yml"
@@ -62,3 +63,11 @@ services:
      - "8000:3000"
    depends_on:
      - "standalone"
+     
+  grafana:
+   container_name: grafana
+   image: grafana/grafana
+   ports:
+     - "3000:3000"
+   depends_on:
+     - "prometheus"
